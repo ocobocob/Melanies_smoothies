@@ -41,6 +41,10 @@ if ingredients_list:
 
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' ' 
+
+        search_on = pd_df.loc[pd_df["fruit_name"]== fruit_chosen, 'search_on'].ilo[0]
+        st.write('The searsch value for ', fruit_chosen,' is ', search_on, '.') 
+      
         st.subheader(fruit_chosen + " Nutrition Information")
         smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen)  
         st.write("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen)
